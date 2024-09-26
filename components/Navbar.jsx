@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { MdOutlineLightMode } from "react-icons/md";
 import { useTheme } from "next-themes";
-import Logo from "../public/logo.svg";
 import { motion } from "framer-motion";
 import Mobile from "@/components/Mobile";
+import MainLogo from "../assets/logo.svg";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -83,28 +84,43 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      if (typeof window !== "undefined") {
+        const currentScrollY = window.scrollY;
+        setLastScrollY(currentScrollY);
+      }
+    };
 
-    // Cleanup event listener on component unmount
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll);
+    }
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("scroll", handleScroll);
+      }
     };
   }, [lastScrollY]);
 
-  const navLinks = document.querySelectorAll("nav a");
+  // Only run document querySelector logic in browser
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      const navLinks = document.querySelectorAll("nav a");
 
-  navLinks.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      const targetSection = document.querySelector(
-        event.target.getAttribute("href")
-      );
-      targetSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          console.log("Link clicked:", event.target);
+        });
       });
-    });
-  });
+
+      // Cleanup event listeners on component unmount
+      return () => {
+        navLinks.forEach((link) => {
+          link.removeEventListener("click", () => {});
+        });
+      };
+    }
+  }, []);
 
   const toggleComponent = () => {
     setShowComponent(!showComponent);
@@ -127,7 +143,10 @@ const Navbar = () => {
             initial="hidden"
             animate="show"
           >
-            <Logo className="w-10 h-10 fill-blue-500" />
+            <MainLogo
+              className="w-10 h-10 fill-blue-500"              
+              alt="logo"/>
+      
           </motion.div>
 
           {/* Nav links animation container */}

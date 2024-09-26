@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import Download from '../assets/download.svg'
 
 const Hero = () => {
   // Animation variants for staggering effect
@@ -53,7 +54,7 @@ const Hero = () => {
           className="sm:text-base text-slate-600 font-medium pb-4 sm:pb-10 dark:text-slate-400"
           variants={item}
         >
-          I'm a Full-Stack Developer from Wayanad. I enjoy working on every
+          I&apos;m a Full-Stack Developer from Wayanad. I enjoy working on every
           aspect of web development, from the user interface to the server
           logic.
         </motion.p>
@@ -68,11 +69,9 @@ const Hero = () => {
             className="flex items-center gap-2 border border-blue-300 dark:text-slate-200 text-sm sm:text-base px-6 py-2.5 sm:px-10 sm:py-4 font-roboto rounded-lg hover:shadow-lg hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all hover:-translate-y-1 "
           >
             {" "}
-            <img
+            <Download
               className="w-8 h-8 sm:w-8 sm:h-8"
-              src="/assets/download.svg"
-              alt="skill"
-            ></img>{" "}
+            />{" "}
             Download Resume
           </a>
         </motion.div>

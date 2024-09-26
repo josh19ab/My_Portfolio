@@ -1,10 +1,16 @@
+import Image from "next/image";
+import chatapp from '../assets/projects/chat-app.jpg';
+import urbankicks from "../assets/projects/urban-kicks.jpg";
+import ems from "../assets/projects/ems.jpg";
+import StoryBooks from "../assets/projects/StoryBooks.jpg";
+
 const Projects = () => {
   
   return (
     <div className="px-5 xs:px-10 sm:px-12 md:px-24 py-24 mt-4" id="projects">
       <div class="flex items-center gap-3 pb-10 pt-2.5">
         <h3 class="text-3xl font-extrabold text-slate-800 dark:text-slate-200 font-inter">
-          Some Things I've Built
+          Some Things I&apos;ve Built
         </h3>
         <div class="h-px flex-grow max-w-xs bg-blue-100 dark:bg-blue-900"></div>
       </div>
@@ -51,9 +57,8 @@ const Projects = () => {
                     <span className="font-medium">Pass:</span> testuser
                   </li>
                   <li>
-                    <span className="font-medium">Email:</span>{" "}
-                    demo@gmail.com &nbsp;{" "}
-                    <span className="font-medium">Pass:</span>  demo123
+                    <span className="font-medium">Email:</span> demo@gmail.com
+                    &nbsp; <span className="font-medium">Pass:</span> demo123
                   </li>
                 </ul>
               </div>
@@ -101,10 +106,11 @@ const Projects = () => {
               target="_blank"
               className="h-full"
             >
-              <img
+              <Image
                 className="w-full h-full md:h-auto object-cover md:shadow-xl md:rounded-lg"
-                src="/assets/projects/chat-app.jpg"
-              ></img>
+                src={chatapp}
+                alt="Chat App"
+              ></Image>
             </a>
           </div>
         </div>
@@ -117,10 +123,10 @@ const Projects = () => {
               target="_blank"
               className="h-full"
             >
-              <img
+              <Image
                 className="w-full h-full md:h-auto object-cover md:shadow-xl md:rounded-lg"
-                src="/assets/projects/urban-kicks.jpg"
-              ></img>
+                src={urbankicks}
+              ></Image>
             </a>
           </div>
           {/* right element */}
@@ -274,10 +280,10 @@ const Projects = () => {
               target="_blank"
               className="h-full"
             >
-              <img
+              <Image
                 className="w-full h-full md:h-auto object-cover md:shadow-xl md:rounded-lg"
-                src="/assets/projects/ems.jpg"
-              ></img>
+                src={ems}
+              ></Image>
             </a>
           </div>
         </div>
@@ -290,10 +296,10 @@ const Projects = () => {
               target="_blank"
               className="h-full"
             >
-              <img
+              <Image
                 className="w-full h-full md:h-auto object-cover md:shadow-xl md:rounded-lg"
-                src="/assets/projects/StoryBooks.jpg"
-              ></img>
+                src={StoryBooks}
+              ></Image>
             </a>
           </div>
           {/* right element */}

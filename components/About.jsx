@@ -1,3 +1,19 @@
+import Image from "next/image";
+
+import express from "../assets/express.svg";
+import git from "../assets/git.svg";
+import mongo from "../assets/mongo.svg";
+import node from "../assets/node.svg";
+import next from "../assets/next.svg";
+import vite from "../assets/vite.svg";
+import tailwind from "../assets/tailwind.svg";
+import react from "../assets/react.svg";
+import python from "../assets/python.svg";
+import jo from "../assets/jo.jpg";
+
+
+
+
 const About = () => {
   return (
     <>
@@ -29,76 +45,76 @@ const About = () => {
             </p>
           </div>
           <div className="w-full md:w-2/3 lg:w-2/5 ">
-            <img
-              src="jo.jpg"
+            <Image
+              src={jo}
               className="rounded-full w-full transition-all duration-300 hover:shadow-xl hover:shadow-blue-200 dark:hover:shadow-blue-800 hover:-translate-y-1"
-            ></img>
+            ></Image>
           </div>
         </div>
       </div>
       <div className="px-5 xs:px-10 sm:px-12 md:px-24 flex flex-wrap gap-5 items-center justify-center xl:justify-between ">
         <div className=" bg-slate-50 p-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all">
-          <img
+          <Image
             className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/assets/nextJs.svg"
+            src={next}
             alt="skill"
-          ></img>
+          ></Image>
         </div>
         <div className=" bg-slate-50 p-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all">
-          <img
+          <Image
             className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/assets/react.svg"
+            src={react}
             alt="skill"
-          ></img>
+          ></Image>
         </div>
         <div className=" bg-slate-50 p-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all">
-          <img
+          <Image
             className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/assets/vite.svg"
+            src={vite}
             alt="skill"
-          ></img>
+          ></Image>
         </div>
         <div className=" bg-slate-50 p-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all">
-          <img
+          <Image
             className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/assets/node.svg"
+            src={node}
             alt="skill"
-          ></img>
+          ></Image>
         </div>
         <div className=" bg-slate-50 p-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all">
-          <img
+          <Image
             className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/assets/mongo.svg"
+            src={mongo}
             alt="skill"
-          ></img>
+          ></Image>
         </div>
         <div className=" bg-slate-50 p-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all">
-          <img
+          <Image
             className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/assets/express.svg"
+            src={express}
             alt="skill"
-          ></img>
+          ></Image>
         </div>
         <div className=" bg-slate-50 p-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all">
-          <img
+          <Image
             className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/assets/tailwind.svg"
+            src={tailwind}
             alt="skill"
-          ></img>
+          ></Image>
         </div>
         <div className=" bg-slate-50 p-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all">
-          <img
+          <Image
             className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/assets/python.svg"
+            src={python}
             alt="skill"
-          ></img>
+          ></Image>
         </div>
         <div className=" bg-slate-50 p-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all">
-          <img
+          <Image
             className="w-10 h-10 sm:w-12 sm:h-12"
-            src="/assets/git.svg"
+            src={git}
             alt="skill"
-          ></img>
+          ></Image>
         </div>
       </div>
     </>
