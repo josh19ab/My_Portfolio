@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { MdOutlineLightMode } from "react-icons/md";
 import { useTheme } from "next-themes";
@@ -9,11 +9,12 @@ import MainLogo from "../assets/logo.svg";
 import Image from "next/image";
 
 const Navbar = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const { theme, setTheme } = useTheme();
   const [showComponent, setShowComponent] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [hasShadow, setHasShadow] = useState(false);
+  const lastScrollY = useRef(0);
 
-  // Define animation variants for staggered effect
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -39,91 +40,61 @@ const Navbar = () => {
     show: { opacity: 1, transition: { duration: 0.4, delay: 2 } },
   };
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    setTheme(theme === "dark" ? "light" : "dark");
+  const toggleComponent = () => {
+    setShowComponent(!showComponent);
   };
 
-  useEffect(() => {
-    const root = window.document.documentElement;
-    const initialColorValue = root.classList.contains("dark")
-      ? "dark"
-      : "light";
-    setTheme(initialColorValue);
-
-    if (typeof localStorage !== "undefined") {
-      localStorage.setItem("theme", initialColorValue);
-    }
-  }, [setTheme]);
-
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [hasShadow, setHasShadow] = useState(false);
-
-  const SCROLL_THRESHOLD = 100;
-
-  const handleScroll = () => {
-    if (typeof window !== "undefined") {
-      const currentScrollY = window.scrollY;
-
-      // Scroll down beyond the threshold -> Hide navbar
-      if (currentScrollY > lastScrollY && currentScrollY > SCROLL_THRESHOLD) {
-        setIsVisible(false);
-      }
-      // Scroll up -> Show navbar
-      else if (currentScrollY < lastScrollY) {
-        setIsVisible(true);
-      }
-
-      // Add shadow after crossing the scroll threshold
-      setHasShadow(currentScrollY > SCROLL_THRESHOLD);
-
-      // Update the last known scroll position
-      setLastScrollY(currentScrollY);
-    }
-  };
+  const scrollThreshold = 100;
 
   useEffect(() => {
     const handleScroll = () => {
-      if (typeof window !== "undefined") {
-        const currentScrollY = window.scrollY;
-        setLastScrollY(currentScrollY);
+      const currentScrollY = window.scrollY;
+
+      // If we're at the very top of the page, no shadow and navbar is visible
+      if (currentScrollY === 0) {
+        setIsVisible(true);
+        setHasShadow(false); // No shadow at the very top
       }
+
+      // Scroll down beyond threshold: Hide the navbar and remove shadow
+      if (
+        currentScrollY > lastScrollY.current &&
+        currentScrollY > scrollThreshold
+      ) {
+        setIsVisible(false); // Hide navbar after scrolling down past the threshold
+      }
+
+      // Scroll up: Show the navbar and add shadow if scrolled beyond the threshold
+      else if (currentScrollY < lastScrollY.current) {
+        setIsVisible(true); // Show the navbar when scrolling up
+        if (currentScrollY > scrollThreshold) {
+          setHasShadow(true); // Add shadow after scrolling down past the threshold
+        } else {
+          setHasShadow(false); // No shadow if within the first 100px from the top
+        }
+      }
+
+      // Update the last scroll position
+      lastScrollY.current = currentScrollY;
     };
 
-    if (typeof window !== "undefined") {
-      window.addEventListener("scroll", handleScroll);
-    }
+    // Attach the scroll event listener
+    window.addEventListener("scroll", handleScroll);
 
+    // Cleanup the event listener on component unmount
     return () => {
-      if (typeof window !== "undefined") {
-        window.removeEventListener("scroll", handleScroll);
-      }
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [lastScrollY]);
-
-  // Only run document querySelector logic in browser
-  useEffect(() => {
-    if (typeof document !== "undefined") {
-      const navLinks = document.querySelectorAll("nav a");
-
-      navLinks.forEach((link) => {
-        link.addEventListener("click", (event) => {
-          console.log("Link clicked:", event.target);
-        });
-      });
-
-      // Cleanup event listeners on component unmount
-      return () => {
-        navLinks.forEach((link) => {
-          link.removeEventListener("click", () => {});
-        });
-      };
-    }
   }, []);
 
-  const toggleComponent = () => {
-    setShowComponent(!showComponent);
+  const handleScrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -143,10 +114,7 @@ const Navbar = () => {
             initial="hidden"
             animate="show"
           >
-            <MainLogo
-              className="w-10 h-10 fill-blue-500"              
-              alt="logo"/>
-      
+            <MainLogo className="w-10 h-10 fill-blue-500" alt="logo" />
           </motion.div>
 
           {/* Nav links animation container */}
@@ -156,35 +124,39 @@ const Navbar = () => {
             initial="hidden"
             animate="show"
           >
-            <motion.a
+            <motion.button
               className="hover:text-blue-500"
-              href="#about"
+              onClick={() => handleScrollToSection("about")}
               variants={item}
             >
               About
-            </motion.a>
-            <motion.a
+            </motion.button>
+            <motion.button
               className="hover:text-blue-500"
-              href="#projects"
+              onClick={() => handleScrollToSection("projects")}
               variants={item}
             >
               Projects
-            </motion.a>
-            <motion.a
+            </motion.button>
+            <motion.button
               className="hover:text-blue-500"
-              href="#contact"
+              onClick={() => handleScrollToSection("contact")}
               variants={item}
             >
               Contact
-            </motion.a>
+            </motion.button>
 
             {/* Dark Mode toggle button animation */}
             <motion.button
               className="text-xl hover:text-blue-500"
-              onClick={toggleDarkMode}
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               variants={item}
             >
-              {isDarkMode ? <MdOutlineLightMode /> : <MdOutlineDarkMode />}
+              {theme === "dark" ? (
+                <MdOutlineLightMode />
+              ) : (
+                <MdOutlineDarkMode />
+              )}
             </motion.button>
           </motion.div>
 
@@ -198,9 +170,9 @@ const Navbar = () => {
             <button
               type="button"
               class="hover:text-blue-500 focus:outline-none"
-              onClick={toggleDarkMode}
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
-              {isDarkMode ? (
+              {theme === "dark" ? (
                 <svg
                   stroke="currentColor"
                   fill="currentColor"

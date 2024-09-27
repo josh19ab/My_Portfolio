@@ -1,6 +1,6 @@
 const Contact = () => {
   return (
-    <div className="px-5 xs:px-10 sm:px-12 md:px-24 pt-24 pb-48 " id="contact">
+    <section className="px-5 xs:px-10 sm:px-12 md:px-24 pt-24 pb-48 " id="contact">
       <div class="flex flex-col justify-center items-center">
         <h2 class="text-5xl font-extrabold dark:text-slate-300 mb-5">
           Get In Touch
@@ -34,7 +34,7 @@ const Contact = () => {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

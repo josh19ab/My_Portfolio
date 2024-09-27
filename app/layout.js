@@ -15,9 +15,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <body className={roboto_mono.className}>{children}</body> 
-      </ThemeProvider>
+      <body className={roboto_mono.className}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

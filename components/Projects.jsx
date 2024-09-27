@@ -7,7 +7,7 @@ import StoryBooks from "../assets/projects/StoryBooks.jpg";
 const Projects = () => {
   
   return (
-    <div className="px-5 xs:px-10 sm:px-12 md:px-24 py-24 mt-4" id="projects">
+    <section className="px-5 xs:px-10 sm:px-12 md:px-24 py-24 mt-4" id="projects">
       <div class="flex items-center gap-3 pb-10 pt-2.5">
         <h3 class="text-3xl font-extrabold text-slate-800 dark:text-slate-200 font-inter">
           Some Things I&apos;ve Built
@@ -371,7 +371,7 @@ const Projects = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
