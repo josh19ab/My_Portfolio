@@ -1,26 +1,29 @@
 const Contact = () => {
   return (
-    <section className="px-5 xs:px-10 sm:px-12 md:px-24 pt-24 pb-48 " id="contact">
-      <div class="flex flex-col justify-center items-center">
-        <h2 class="text-5xl font-extrabold dark:text-slate-300 mb-5">
+    <section
+      className="px-5 xs:px-10 sm:px-12 md:px-24 pt-24 pb-48 "
+      id="contact"
+    >
+      <div className="flex flex-col justify-center items-center">
+        <h2 className="text-5xl font-extrabold dark:text-slate-300 mb-5">
           Get In Touch
         </h2>
-        <p class="text-center lg:w-1/2 mb-8 text-slate-700 dark:text-slate-400">
+        <p className="text-center lg:w-1/2 mb-8 text-slate-700 dark:text-slate-400">
           I love connecting with people who share my passion for development. If
           you have any inquiries or just want to say hi, hit the button below to
           send me an email!{" "}
         </p>
-        <div class="flex gap-y-4 gap-x-8 flex-wrap justify-center">
+        <div className="flex gap-y-4 gap-x-8 flex-wrap justify-center">
           <a
             target="_blank"
             href="mailto:jo19abraham@gmail.com"
-            class="flex items-center gap-2 border border-blue-300 dark:text-slate-200 text-sm sm:text-base px-6 py-2.5 sm:px-10 sm:py-4 font-roboto rounded hover:shadow-lg hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all hover:-translate-y-1"
+            className="flex items-center gap-2 border border-blue-300 dark:text-slate-200 text-sm sm:text-base px-6 py-2.5 sm:px-10 sm:py-4 font-roboto rounded hover:shadow-lg hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all hover:-translate-y-1"
           >
             {" "}
             <svg
               stroke="currentColor"
               fill="currentColor"
-              stroke-width="0"
+              strokeWidth="0"
               viewBox="0 0 20 20"
               aria-hidden="true"
               height="22"

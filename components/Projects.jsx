@@ -1,18 +1,20 @@
 import Image from "next/image";
-import chatapp from '../assets/projects/chat-app.jpg';
+import chatapp from "../assets/projects/chat-app.jpg";
 import urbankicks from "../assets/projects/urban-kicks.jpg";
 import ems from "../assets/projects/ems.jpg";
 import StoryBooks from "../assets/projects/StoryBooks.jpg";
 
 const Projects = () => {
-  
   return (
-    <section className="px-5 xs:px-10 sm:px-12 md:px-24 py-24 mt-4" id="projects">
-      <div class="flex items-center gap-3 pb-10 pt-2.5">
-        <h3 class="text-3xl font-extrabold text-slate-800 dark:text-slate-200 font-inter">
+    <section
+      className="px-5 xs:px-10 sm:px-12 md:px-24 py-24 mt-4"
+      id="projects"
+    >
+      <div className="flex items-center gap-3 pb-10 pt-2.5">
+        <h3 className="text-3xl font-extrabold text-slate-800 dark:text-slate-200 font-inter">
           Some Things I&apos;ve Built
         </h3>
-        <div class="h-px flex-grow max-w-xs bg-blue-100 dark:bg-blue-900"></div>
+        <div className="h-px flex-grow max-w-xs bg-blue-100 dark:bg-blue-900"></div>
       </div>
       <div>
         {/* Project 1 */}
@@ -84,10 +86,10 @@ const Projects = () => {
                 <svg
                   stroke="currentColor"
                   fill="none"
-                  stroke-width="2"
+                  strokeWidth="2"
                   viewBox="0 0 24 24"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   height="22"
                   width="22"
                   xmlns="http://www.w3.org/2000/svg"
@@ -126,6 +128,7 @@ const Projects = () => {
               <Image
                 className="w-full h-full md:h-auto object-cover md:shadow-xl md:rounded-lg"
                 src={urbankicks}
+                alt="urbankicks"
               ></Image>
             </a>
           </div>
@@ -188,10 +191,10 @@ const Projects = () => {
                 <svg
                   stroke="currentColor"
                   fill="none"
-                  stroke-width="2"
+                  strokeWidth="2"
                   viewBox="0 0 24 24"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   height="22"
                   width="22"
                   xmlns="http://www.w3.org/2000/svg"
@@ -258,10 +261,10 @@ const Projects = () => {
                 <svg
                   stroke="currentColor"
                   fill="none"
-                  stroke-width="2"
+                  strokeWidth="2"
                   viewBox="0 0 24 24"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   height="22"
                   width="22"
                   xmlns="http://www.w3.org/2000/svg"
@@ -283,6 +286,7 @@ const Projects = () => {
               <Image
                 className="w-full h-full md:h-auto object-cover md:shadow-xl md:rounded-lg"
                 src={ems}
+                alt="ems"
               ></Image>
             </a>
           </div>
@@ -299,6 +303,7 @@ const Projects = () => {
               <Image
                 className="w-full h-full md:h-auto object-cover md:shadow-xl md:rounded-lg"
                 src={StoryBooks}
+                alt="storybooks"
               ></Image>
             </a>
           </div>
@@ -354,10 +359,10 @@ const Projects = () => {
                 <svg
                   stroke="currentColor"
                   fill="none"
-                  stroke-width="2"
+                  strokeWidth="2"
                   viewBox="0 0 24 24"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   height="22"
                   width="22"
                   xmlns="http://www.w3.org/2000/svg"

@@ -18,16 +18,16 @@ const Mobile = ({ onClose, isOpen }) => {
     <>
       {isVisible && (
         <div
-          class={`fixed top-0 left-0 z-30 w-full h-full flex flex-col shadow-2xl md:hidden bg-white dark:bg-slate-950 bg-opacity-95 backdrop-blur-sm transition-all duration-500  ${
+          className={`fixed top-0 left-0 z-30 w-full h-full flex flex-col shadow-2xl md:hidden bg-white dark:bg-slate-950 bg-opacity-95 backdrop-blur-sm transition-all duration-500  ${
             isOpen ? "animate-slideIn" : "animate-slideOut"
           }`}
         >
-          <div class="h-16 w-full  flex justify-end items-center px-5 hover:text-blue-500 dark:text-slate-200">
+          <div className="h-16 w-full  flex justify-end items-center px-5 hover:text-blue-500 dark:text-slate-200">
             <button onClick={onClose}>
               <svg
                 stroke="currentColor"
                 fill="none"
-                stroke-width="0"
+                strokeWidth="0"
                 viewBox="0 0 15 15"
                 height="32"
                 width="32"
@@ -42,40 +42,40 @@ const Mobile = ({ onClose, isOpen }) => {
               </svg>
             </button>
           </div>
-          <div class="flex-grow flex gap-10 flex-col justify-center px-5">
-            <div class="flex flex-col gap-8 items-center font-roboto w-full dark:text-slate-200">
+          <div className="flex-grow flex gap-10 flex-col justify-center px-5">
+            <div className="flex flex-col gap-8 items-center font-roboto w-full dark:text-slate-200">
               <a
                 href="#about"
-                class="text-2xl hover:text-blue-500"
+                className="text-2xl hover:text-blue-500"
                 onClick={onClose}
               >
                 About
               </a>
               <a
                 href="#projects"
-                class="text-2xl hover:text-blue-500"
+                className="text-2xl hover:text-blue-500"
                 onClick={onClose}
               >
                 Projects
               </a>
               <a
                 href="#contact"
-                class="text-2xl hover:text-blue-500"
+                className="text-2xl hover:text-blue-500"
                 onClick={onClose}
               >
                 Contact
               </a>
             </div>
-            <div class="flex justify-center gap-8 ">
+            <div className="flex justify-center gap-8 ">
               <a
                 target="_blank"
                 href="https://github.com/josh19ab"
-                class="transition-all text-slate-800 dark:text-slate-200 hover:text-blue-400 "
+                className="transition-all text-slate-800 dark:text-slate-200 hover:text-blue-400 "
               >
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 16 16"
                   height="32"
                   width="32"
@@ -87,12 +87,12 @@ const Mobile = ({ onClose, isOpen }) => {
               <a
                 target="_blank"
                 href="https://www.instagram.com/joshua_abraham_0"
-                class="transition-all text-slate-800 dark:text-slate-200 hover:text-blue-400 "
+                className="transition-all text-slate-800 dark:text-slate-200 hover:text-blue-400 "
               >
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 16 16"
                   height="32"
                   width="32"
@@ -104,12 +104,12 @@ const Mobile = ({ onClose, isOpen }) => {
               <a
                 target="_blank"
                 href="https://x.com/JOSHUAABRA75773"
-                class="transition-all text-slate-800 dark:text-slate-200 hover:text-blue-400 "
+                className="transition-all text-slate-800 dark:text-slate-200 hover:text-blue-400 "
               >
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 16 16"
                   height="32"
                   width="32"
@@ -121,12 +121,12 @@ const Mobile = ({ onClose, isOpen }) => {
               <a
                 target="_blank"
                 href="https://www.linkedin.com/in/joshua-abraham-9b2a6a244"
-                class="transition-all text-slate-800 dark:text-slate-200 hover:text-blue-400 "
+                className="transition-all text-slate-800 dark:text-slate-200 hover:text-blue-400 "
               >
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 16 16"
                   height="32"
                   width="32"
@@ -136,17 +136,17 @@ const Mobile = ({ onClose, isOpen }) => {
                 </svg>
               </a>
             </div>
-            <div class="flex gap-y-4 gap-x-8 sm:flex-row justify-center flex-col border-t dark:border-slate-500 py-10 dark:text-slate-200">
+            <div className="flex gap-y-4 gap-x-8 sm:flex-row justify-center flex-col border-t dark:border-slate-500 py-10 dark:text-slate-200">
               <a
                 target="_blank"
                 href="mailto:jo19abraham@gmail.com"
-                class="inline-flex justify-center items-center gap-2 border border-blue-300 px-10 py-4 font-roboto rounded hover:shadow-lg hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all hover:-translate-y-1"
+                className="inline-flex justify-center items-center gap-2 border border-blue-300 px-10 py-4 font-roboto rounded hover:shadow-lg hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all hover:-translate-y-1"
               >
                 {" "}
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 20 20"
                   aria-hidden="true"
                   height="22"
@@ -161,13 +161,13 @@ const Mobile = ({ onClose, isOpen }) => {
               <a
                 target="_blank"
                 href="https://wa.me/+917510237062"
-                class="inline-flex justify-center items-center gap-2 border border-blue-300 px-10 py-4 font-roboto rounded hover:shadow-lg hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all hover:-translate-y-1"
+                className="inline-flex justify-center items-center gap-2 border border-blue-300 px-10 py-4 font-roboto rounded hover:shadow-lg hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all hover:-translate-y-1"
               >
                 {" "}
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 16 16"
                   height="20"
                   width="20"

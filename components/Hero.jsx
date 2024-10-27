@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import Download from "../assets/download.svg";
 import Spline from "@splinetool/react-spline";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const Hero = () => {
   // Animation variants for staggering effect
@@ -26,13 +26,31 @@ const Hero = () => {
     show: { opacity: 1, transition: { duration: 0.7 } },
   };
 
-  const splineRef = useRef();
+  const spline = useRef();
 
-  const triggerAction = () => {
-    if (splineRef.current) {
-      // Replace 'object-name' with the name of the object in your Spline scene
-      splineRef.current.emitEvent("mouseDown", "corazón 3");
-    }
+  function onLoad(splineApp) {
+    spline.current = splineApp;
+  }
+
+  // function triggerAnimation() {
+  //   spline.current.emitEvent(
+  //     "mouseHover",
+  //     "d364968a-b8cd-4b22-8303-ff09624f399a"
+  //   );
+  // }
+
+  const handleMouseEnter = () => {
+    spline.current.emitEvent(
+      "mouseHover",
+      "d364968a-b8cd-4b22-8303-ff09624f399a"
+    );
+  };
+
+  const handleMouseLeave = () => {
+    spline.current.emitEventReverse(
+      "mouseHover",
+      "d364968a-b8cd-4b22-8303-ff09624f399a"
+    );
   };
 
   return (
@@ -75,8 +93,9 @@ const Hero = () => {
         >
           <a
             href="/MY_RESUME.pdf"
-            onClick={triggerAction}
             target="_blank"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             rel="noopener noreferrer"
             className="flex items-center gap-2 border border-blue-300 dark:text-slate-200 text-sm sm:text-base px-6 py-2.5 sm:px-10 sm:py-4 font-roboto rounded-lg hover:shadow-lg hover:shadow-blue-200 dark:hover:shadow-blue-800 transition-all hover:-translate-y-1 "
           >
@@ -87,13 +106,24 @@ const Hero = () => {
       </motion.div>
 
       <motion.div
-        className="w-full "
+        className="w-full hidden sm:block"
         variants={lottieVariant}
         initial="hidden"
         animate="show"
       >
-        {/* <DotLottieReact src="avatar.lottie" loop autoplay /> */}
-        <Spline scene="https://prod.spline.design/Dzb6V208MgBGRqTt/scene.splinecode" />
+        <Spline
+          scene="https://prod.spline.design/Dzb6V208MgBGRqTt/scene.splinecode"
+          onLoad={onLoad}
+        />
+      </motion.div>
+
+      <motion.div
+        className="w-full block sm:hidden"
+        variants={lottieVariant}
+        initial="hidden"
+        animate="show"
+      >
+        <DotLottieReact src="avatar.lottie" loop autoplay />
       </motion.div>
     </div>
   );

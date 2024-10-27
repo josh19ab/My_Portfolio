@@ -44,6 +44,7 @@ const About = () => {
           <div className="w-full md:w-2/3 lg:w-2/5 ">
             <Image
               src={jo}
+              alt="jo"
               className="rounded-full w-full transition-all duration-300 hover:shadow-xl hover:shadow-blue-200 dark:hover:shadow-blue-800 hover:-translate-y-1"
             ></Image>
           </div>
